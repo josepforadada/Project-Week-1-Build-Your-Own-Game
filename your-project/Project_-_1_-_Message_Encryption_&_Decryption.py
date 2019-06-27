@@ -22,19 +22,31 @@ def encrypt:
 def decrypt:
 
 '''
+from functions_for_the_project import what_to_do                                    # import all functions needed
 
-from functions_for_the_project import what_to_do                                # import all functions needed
+no_quit = "1"
+no_errors = "1"
 
-user_answer, message = what_to_do.ask_user_encrypt_or_decrypt()                 # ask user messsage
+while no_quit == "1" or no_errors == "1":
 
-user_picture = what_to_do.ask_for_the_picture()                                 # ask user image hash
+    get_user_answer, get_message, no_errors = what_to_do.ask_user_encrypt_or_decrypt()         # ask user messsage
 
-image_hash_generator = what_to_do.image_to_values()                             # convert image to a list
+    if no_errors == "0" or no_quit == "0":
 
-if user_answer is Encrypt:
+        break
 
-    CONVERSION = what_to_do.encrypt(CONVERSION)                                 # encrypt message
-else:
-    CONVERSION = what_to_do.decrypt(CONVERSION)                                 # decrypt
+    get_user_picture = what_to_do.ask_for_the_picture()                             # ask user image hash
 
-what_to_do.show_conversion()                                                    # show result
+    get_image_hash = what_to_do.image_to_values(get_user_picture)                   # convert image to a list
+
+    final_message = what_to_do.encrypt_or_decrypt(get_message,get_image_hash)       # encrypt message
+
+    what_to_do.show_final_message()                                                 # show result
+
+if no_quit == "0":
+
+    print("You Exit the program")
+
+if no_errors == "0":
+
+    print("\nThis is not for you, I don't even think you can read. Bye ")
