@@ -39,9 +39,9 @@ while no_quit == "1" or no_errors == "1":
 
     get_image_hash = what_to_do.image_to_values(get_user_picture)                   # convert image to a list
 
-    final_message = what_to_do.encrypt_or_decrypt(get_message,get_image_hash)       # encrypt message
+    final_message = what_to_do.encrypt_or_decrypt(get_message,get_image_hash,get_user_answer)       # encrypt message
 
-    what_to_do.show_final_message()                                                 # show result
+    what_to_do.show_final_message(final_message)                                    # show result
 
 if no_quit == "0":
 
